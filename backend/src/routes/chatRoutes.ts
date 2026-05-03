@@ -1,23 +1,11 @@
 import { Router } from "express";
-import {
-  createChat,
-  getUserChats,
-  getChatMessages,
-  sendMessage,
-} from "../controllers/chatController";
+import { protectRoute } from "../middleware/auth";
 
 const router = Router();
 
-// create a new chat
-router.post("/", createChat);
-
+router.use(protectRoute);
 // get all chats for a user
-router.get("/", getUserChats);
-
-// get messages of a specific chat
-router.get("/:chatId/messages", getChatMessages);
-
-// send message in a chat
-router.post("/:chatId/message", sendMessage);
+router.get("/", getChats);
+router.post("/with/:participantId", getOrCreateChat);
 
 export default router;

@@ -38,3 +38,5 @@ MessageSchema.index(chat:1,createdAt:1);
 
 export const Message = mongoose.model("Message", MessageSchema);
 //blueeprint of message “Every message sent in chat should look like this.”
+
+
