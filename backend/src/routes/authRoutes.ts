@@ -1,20 +1,14 @@
 import { Router } from "express";
+import { getMe, authCallback } from "../controllers/authController";
+
+import { protectRoute } from "../middleware/auth";
 
 const router = Router();
 
-// Register user
-router.post("/register", (req, res) => {
-  res.send("User registered");
-});
+// current logged-in user
+router.get("/me", protectRoute, getMe);
 
-// Login user
-router.post("/login", (req, res) => {
-  res.send("User logged in");
-});
-
-// Logout user
-router.post("/logout", (req, res) => {
-  res.send("User logged out");
-});
+// Clerk callback
+router.post("/callback", authCallback);
 
 export default router;

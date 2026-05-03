@@ -1,14 +1,15 @@
 import mongoose, { Schema, type Document } from "mongoose";
 
-interface IUser extends Document {
+export interface IUser extends Document {
   clerkId: string;
-  name: String;
-  email: String;
-  avatar: String;
+  name: string;
+  email: string;
+  avatar: string;
   createdAt: Date;
   updatedAt: Date;
 }
-export const UserSchema = new Schema<IUser>(
+
+const UserSchema = new Schema<IUser>(
   {
     clerkId: {
       type: String,
@@ -36,6 +37,5 @@ export const UserSchema = new Schema<IUser>(
     timestamps: true,
   },
 );
-export const User = mongoose.models.User || mongoose.model("User", UserSchema);
 
-//where and how i store my user's data
+export const User = mongoose.model("User", UserSchema);
