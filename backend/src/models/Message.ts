@@ -31,12 +31,10 @@ const MessageSchema = new Schema<IMessage>(
   { timestamps: true },
 );
 
-MessageSchema.index(chat:1,createdAt:1);
+MessageSchema.index({ chat: 1, createdAt: 1 });
 
 //chat: 1 → group by chat
 //createdAt: 1 → sort by time (ascending)
 
 export const Message = mongoose.model("Message", MessageSchema);
 //blueeprint of message “Every message sent in chat should look like this.”
-
-
