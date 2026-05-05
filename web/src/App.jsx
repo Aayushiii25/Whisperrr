@@ -1,38 +1,27 @@
-import "./App.css";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  ClerkLoaded,
-  ClerkLoading,
-} from "@clerk/clerk-react";
+import { Navigate, Route, Routes } from "react-router";
+import HomePage from "./pages/HomePage";
+import ChatPage from "./pages/ChatPage";
+import { useAuth } from "@clerk/clerk-react";
+import PageLoader from "./components/PageLoader";
+import useUserSync from "./hooks/useUserSync";
 
 function App() {
+  const { isLoaded, isSignedIn } = useAuth();
+  useUserSync();
+
+  if (!isLoaded) return <PageLoader />;
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Welcome to Whisper!</h1>
-
-      {/* While Clerk is loading */}
-      <ClerkLoading>
-        <p>Loading authentication...</p>
-      </ClerkLoading>
-
-      {/* After Clerk is ready */}
-      <ClerkLoaded>
-        <SignedOut>
-          <SignInButton mode="modal">
-            <button style={{ padding: "10px 20px", cursor: "pointer" }}>
-              Sign In
-            </button>
-          </SignInButton>
-        </SignedOut>
-
-        <SignedIn>
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>
-      </ClerkLoaded>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={!isSignedIn ? <HomePage /> : <Navigate to={"/chat"} />}
+      />
+      <Route
+        path="/chat"
+        element={isSignedIn ? <ChatPage /> : <Navigate to={"/"} />}
+      />
+    </Routes>
   );
 }
 
