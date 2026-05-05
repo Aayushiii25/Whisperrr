@@ -1,7 +1,7 @@
 // Fetch messages of selected chat
 // Listen for new messages via socket
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import api from "../lib/axios";
 
 export const useMessages = (chatId) => {

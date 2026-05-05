@@ -2,7 +2,7 @@
 // Used to identify "me"
 import { useQuery } from "@tanstack/react-query";
 import api from "../lib/axios";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 
 export const useCurrentUser = () => {
   const { getToken } = useAuth();

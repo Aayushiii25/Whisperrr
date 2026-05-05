@@ -1,7 +1,7 @@
 // Connect to socket server
 // Enables real-time chat features
 import { useEffect } from "react";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSocketStore } from "../lib/socket";
 

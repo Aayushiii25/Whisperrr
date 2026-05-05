@@ -1,6 +1,6 @@
 // Fetch all users
 // Used for starting new chats
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 import api from "../lib/axios";

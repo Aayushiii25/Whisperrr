@@ -1,6 +1,6 @@
 // Sync user online/offline status with server
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import api from "../lib/axios";
 
 export const useUsers = () => {

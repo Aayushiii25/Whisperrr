@@ -2,7 +2,7 @@
 // Fetch all chats for sidebar
 // Also updates chats in real-time
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import api from "../lib/axios";
 
 export const useChats = () => {
