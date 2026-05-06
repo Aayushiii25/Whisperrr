@@ -40,7 +40,7 @@ This keeps things simple while still allowing real-time behavior.
 
 ---
 
-## 🧩 Backend logic (high level)
+## 🧩 Backend logic 
 
 * Users are authenticated using Clerk
 * Chats are created between users dynamically
